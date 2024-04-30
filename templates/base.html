@@ -25,7 +25,12 @@
         </p>
         {% endif %}
     </nav>
-    <div class="container">
+
+</header>
+<!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+<div class="container">
         <h1 class="mt-4 mb-4">Интернет-магазин компьютерных комплектующих</h1>
 
         <!-- Группа товаров: Процессоры -->
@@ -482,11 +487,6 @@
 
         </div>
     </div>
-</header>
-<!-- Begin page content -->
-<main role="main" class="container">
-    {% block content %}{% endblock %}
-
 </main>
 </body>
 </html>

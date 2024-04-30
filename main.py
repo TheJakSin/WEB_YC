@@ -33,12 +33,12 @@ def register():
         if form.password.data != form.password_again.data:
             return render_template('register.html', title='Регистрация',
                                    form=form,
-                                   message="Пароли не совпадают")
+                                   message="Пароли не совпадают", shop=shop_data)
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.email == form.email.data).first():
             return render_template('register.html', title='Регистрация',
                                    form=form,
-                                   message="Такой пользователь уже есть")
+                                   message="Такой пользователь уже есть", shop=shop_data)
         user = User(
             name=form.name.data,
             email=form.email.data,
@@ -47,7 +47,7 @@ def register():
         db_sess.add(user)
         db_sess.commit()
         return redirect('/login')
-    return render_template('register.html', title='Регистрация', form=form)
+    return render_template('register.html', title='Регистрация', form=form, shop=shop_data)
 
 
 @app.route('/cart')
@@ -57,8 +57,13 @@ def cart():
         db_sess = db_session.create_session()
         user = db_sess.query(User).get(user_id)
         user_bag = user.bag.split(';') if user.bag else []
+        print(user_bag)
+        user_bag = [int(i) for i in user_bag if len(i) != 0]
+        c = 0
+        for i in user_bag:
+            c += int(shop_data[i - 1][4])
 
-        return render_template('cart.html', user_bag=user_bag)
+        return render_template('cart.html', user_bag=user_bag, shop=shop_data, chek=c)
     else:
         return "Пожалуйста, войдите на сайт, чтобы просмотреть корзину."
 
@@ -74,8 +79,8 @@ def login():
             return redirect("/")
         return render_template('login.html',
                                message="Неправильный логин или пароль",
-                               form=form)
-    return render_template('login.html', title='Авторизация', form=form)
+                               form=form, shop=shop_data)
+    return render_template('login.html', title='Авторизация', form=form, shop=shop_data)
 
 
 @login_manager.user_loader
@@ -97,8 +102,7 @@ def add(id):
         user_id = current_user.id
         db_sess = db_session.create_session()
         user = db_sess.query(User).get(user_id)
-        user.bag = user.bag.split(';') if user.bag else ''
-        user.bag = user.bag + f' {id};'
+        user.bag = user.bag + f'{id};'
         db_sess.commit()
 
         return redirect("/")
@@ -108,9 +112,9 @@ def add(id):
 
 @app.route('/')
 def index():
+    global shop_data
     db_sess = db_session.create_session()
     shop_items = db_sess.query(Shop).all()
-    global shop_data
     shop_data = [[item.id, item.title, item.info.split(';'), item.type, item.price] for item in shop_items]
     return render_template('base.html', shop=shop_data)
 

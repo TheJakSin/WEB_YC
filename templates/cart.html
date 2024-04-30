@@ -4,12 +4,14 @@
 <div class="container">
     <h2>Корзина</h2>
     <div class="cart-items">
-        {% for item_id in user_bag %}
-            {% set item = shop[item_id - 1] %}
+        {% for id in user_bag %}
             <div class="cart-item">
-                <p>{{ item.name }}</p>
+                <p>{{ shop[id - 1][1] }}</p>
             </div>
         {% endfor %}
+        <div class="cart-item">
+                <p>Сумма = {{ chek }}</p>
+            </div>
     </div>
 </div>
 {% endblock %}
