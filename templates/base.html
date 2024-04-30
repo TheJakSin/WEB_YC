@@ -11,8 +11,11 @@
 </head>
 <body>
 <header>
+    <div class="header">
+        <h1>Магазин Your Choice</h1>
+        <a href="/cart" class="cart-link">Корзина</a>
+    </div>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">Наше приложение</a>
         {% if current_user.is_authenticated %}
         <a class="navbar-brand" href="/logout">{{ current_user.name }}</a>
         {% else %}
@@ -22,10 +25,468 @@
         </p>
         {% endif %}
     </nav>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Интернет-магазин компьютерных комплектующих</h1>
+
+        <!-- Группа товаров: Процессоры -->
+        <h2>Процессоры</h2>
+        <div class="row">
+            <!-- Процессор 1 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="/static/img/1.jpg.webp" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{shop[0][1]}}</h5>
+                        <p>Цена: {{ shop[0][4] }}</p>
+                        <h3>Характеристики товара:</h3>
+                        <ul>
+                            {% for info_item in shop[0][2] %}
+                            <li>{{ info_item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="/add_to_cart/1" class="btn btn-success">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Процессор 2 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="/static/img/2.jpg.webp" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{shop[1][1]}}</h5>
+                        <p>Цена: {{ shop[1][4] }}</p>
+                        <h3>Характеристики товара:</h3>
+                        <ul>
+                            {% for info_item in shop[1][2] %}
+                            <li>{{ info_item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="/add_to_cart/2" class="btn btn-success">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Процессор 3 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="/static/img/3.jpg.webp" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{shop[2][1]}}</h5>
+                        <p>Цена: {{ shop[2][4] }}</p>
+                        <h3>Характеристики товара:</h3>
+                        <ul>
+                            {% for info_item in shop[2][2] %}
+                            <li>{{ info_item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="/add_to_cart/3" class="btn btn-success">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Группа товаров: Видеокарты -->
+        <h2>Видеокарты</h2>
+        <div class="row">
+            <!-- Видеокарта 1 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="/static/img/4.jpg" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{shop[3][1]}}</h5>
+                        <p>Цена: {{ shop[3][4] }}</p>
+                        <h3>Характеристики товара:</h3>
+                        <ul>
+                            {% for info_item in shop[3][2] %}
+                            <li>{{ info_item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="/add_to_cart/4" class="btn btn-success">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Видеокарта 2 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="/static/img/5.jpeg" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{shop[4][1]}}</h5>
+                        <p>Цена: {{ shop[4][4] }}</p>
+                        <h3>Характеристики товара:</h3>
+                        <ul>
+                            {% for info_item in shop[4][2] %}
+                            <li>{{ info_item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="/add_to_cart/5" class="btn btn-success">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Видеокарта 3 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="/static/img/6.webp" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{shop[5][1]}}</h5>
+                        <p>Цена: {{ shop[5][4] }}</p>
+                        <h3>Характеристики товара:</h3>
+                        <ul>
+                            {% for info_item in shop[5][2] %}
+                            <li>{{ info_item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="/add_to_cart/6" class="btn btn-success">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа товаров: Материнские платы -->
+            <h2>Материнские платы</h2>
+            <div class="row">
+                <!-- Материнская плата 1 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/7.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[6][1]}}</h5>
+                            <p>Цена: {{ shop[6][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[6][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/7" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Материнская плата 2 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/8.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[7][1]}}</h5>
+                            <p>Цена: {{ shop[7][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[7][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/8" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Материнская плата 3 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/9.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[8][1]}}</h5>
+                            <p>Цена: {{ shop[8][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[8][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/9" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа товаров: ОЗУ -->
+            <h2>ОЗУ</h2>
+            <div class="row">
+                <!-- ОЗУ 1 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/10.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[9][1]}}</h5>
+                            <p>Цена: {{ shop[9][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[9][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/10" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ОЗУ 2 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/11.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[10][1]}}</h5>
+                            <p>Цена: {{ shop[10][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[10][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/11" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ОЗУ 3 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/12.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[11][1]}}</h5>
+                            <p>Цена: {{ shop[11][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[11][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/12" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа товаров: БП -->
+            <h2>БП</h2>
+            <div class="row">
+                <!-- БП 1 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/13.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[12][1]}}</h5>
+                            <p>Цена: {{ shop[12][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[12][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/13" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- БП 2 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/14.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[13][1]}}</h5>
+                            <p>Цена: {{ shop[13][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[13][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/14" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- БП 3 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/15.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[14][1]}}</h5>
+                            <p>Цена: {{ shop[14][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[14][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/15" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа товаров: Корпуса -->
+            <h2>Корпуса</h2>
+            <div class="row">
+                <!-- Корпус 1 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/16.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[15][1]}}</h5>
+                            <p>Цена: {{ shop[15][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[15][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/16" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Корпус 2 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/17.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[16][1]}}</h5>
+                            <p>Цена: {{ shop[16][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[16][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/17" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Корпус 3 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/18.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[17][1]}}</h5>
+                            <p>Цена: {{ shop[17][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[17][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/18" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа товаров: Системы охлаждения -->
+            <h2>Системы охлаждения</h2>
+            <div class="row">
+                <!-- Система охлаждения 1 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/19.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[18][1]}}</h5>
+                            <p>Цена: {{ shop[18][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[18][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/19" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Система охлаждения 2 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/20.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[19][1]}}</h5>
+                            <p>Цена: {{ shop[19][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[19][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/20" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Система охлаждения 3 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/21.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[20][1]}}</h5>
+                            <p>Цена: {{ shop[20][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[20][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/21" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа товаров: SSD -->
+            <h2>SSD</h2>
+            <div class="row">
+                <!-- SSD 1 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/22.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[21][1]}}</h5>
+                            <p>Цена: {{ shop[21][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[21][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/22" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- SSD 2 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/23.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[22][1]}}</h5>
+                            <p>Цена: {{ shop[22][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[22][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/23" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- SSD 3 -->
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/img/24.jpg.webp" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{shop[23][1]}}</h5>
+                            <p>Цена: {{ shop[23][4] }}</p>
+                            <h3>Характеристики товара:</h3>
+                            <ul>
+                                {% for info_item in shop[23][2] %}
+                                <li>{{ info_item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="/add_to_cart/24" class="btn btn-success">Добавить в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
+        </div>
+    </div>
 </header>
 <!-- Begin page content -->
 <main role="main" class="container">
     {% block content %}{% endblock %}
+
 </main>
 </body>
 </html>

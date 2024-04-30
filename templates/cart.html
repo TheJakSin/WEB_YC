@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Корзина</h2>
+    <div class="cart-items">
+        {% for item_id in user_bag %}
+            {% set item = shop[item_id - 1] %}
+            <div class="cart-item">
+                <p>{{ item.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
